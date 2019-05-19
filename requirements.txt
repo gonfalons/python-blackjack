@@ -1,0 +1,4 @@
+python3.6
+pytest
+random
+logging
