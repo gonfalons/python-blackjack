@@ -5,6 +5,10 @@
 Use classes to replicate a game of blackjack as part of a bootcamp project in Python3.
 [Random module which is designed for modeling and speed for simulations, not security.](https://docs.python.org/3/library/secrets.html)
 
+#### Status:
+
+Under active development
+
 References:
 [0] -- random module is insecure. it is for modeling and simulation, which is perfect for the use case as a study project only.
 Refer to secrets library for a secure implementation
