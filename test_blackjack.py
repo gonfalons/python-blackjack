@@ -1,13 +1,14 @@
 """
 test-driven development + user story
 """
-from Blackjack import (
-    DECK,
-    Hand,
-)
+from Blackjack import (Cards,
+                       Hand,
+                       )
 
+DECK = Cards()
 
 ### ------------------------DECK TESTS-------------------------------------- ###
+
 
 def test_full_deck():
     """full 52-card deck"""
@@ -55,6 +56,10 @@ def test_deck_renews_after_exhausted():
 
 
 ### ------------------------HAND TESTS-------------------------------------- ###
+
+test_hand = Hand()
+
+
 def test_hand_score_lookup():
     """test a variety of hand combinations to make sure they are scored properly"""
 
@@ -85,14 +90,23 @@ def test_hand_score_lookup():
     bust_no_ace = ['7s', '8h', '9d']
     assert Hand.get_score(bust_no_ace) == 24
 
-def test_hand_populates():
-    pass
+
+def test_hand_init_populates():
+    assert len(test_hand.cards) == 2
+
+
+def test_printable_hand_string():
+    print(test_hand)
 
 
 def test_wager_required_to_receive_cards():
     pass
 
 ### ------------------------PLAYER TESTS-------------------------------------- ###
+# class TestPlayer:
+#     def test_player_has_an_attr:
+#         x = "hello"
+#         assert hasattr(x, "check")
 
 
 def test_player_populates_correct_values():

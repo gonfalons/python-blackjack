@@ -18,6 +18,9 @@ class Hand:
     """
     functionality of the player hands 
     """
+
+    #  TODO: inherit from Deck?
+
     @staticmethod
     def get_score(cards):
         """lookup and score blackjack hands independent of instances"""
@@ -28,7 +31,7 @@ class Hand:
             'K': 10, 'Q': 10, 'J': 10, 'T': 10,
             '9': 9, '8': 8, '7': 7, '6': 6, '5': 5, '4': 4, '3': 3, '2': 2
         }
-        
+
         for card in cards:
             if card[0] == 'A':
                 num_aces += 1
@@ -40,6 +43,15 @@ class Hand:
 
         return total_score
 
+    def __init__(self):
+        """start with two cards from the deck"""
+
+        #  TODO: init empty hand, or populate on init?
+
+        # self.cards = []
+        self.cards = [DECK._deal_a_card(), DECK._deal_a_card()]
+        logging.debug(self.cards)
+
 
 my_hand = Hand()
-print(my_hand.get_score(['Ah', 'Ad', '6s']))
+print(type(my_hand))
