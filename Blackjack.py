@@ -21,8 +21,21 @@ class Hand:
 
     #  TODO: inherit from Deck?
 
-    @staticmethod
-    def get_score(cards):
+    def __init__(self):
+        """start with two cards from the deck"""
+
+        #  TODO: init empty hand, or populate on init?
+        #  TODO: use DECK or set as parameter for class?
+        self.cards = []
+        self.cards.append(DECK._deal_a_card())
+        self.cards.append(DECK._deal_a_card())
+        logging.debug(self.cards)
+
+    def receive_card(self):
+        """ 'Hitting' delivers another card to hand """
+        self.cards.append(DECK._deal_a_card())
+
+    def get_score(self, cards):
         """lookup and score blackjack hands independent of instances"""
         num_aces = 0
         total_score = 0
@@ -43,19 +56,6 @@ class Hand:
                 num_aces -= 1
 
         return total_score
-
-    def __init__(self):
-        """start with two cards from the deck"""
-
-        #  TODO: init empty hand, or populate on init?
-        #  TODO: use DECK or set as parameter for class?
-        # self.cards = []
-        self.cards = [DECK._deal_a_card(), DECK._deal_a_card()]
-        logging.debug(self.cards)
-
-    def receive_card(self):
-        """ 'Hitting' delivers another card to hand """
-        self.cards.append(DECK._deal_a_card())
 
     def __len__(self):
         return len(self.cards)
@@ -78,6 +78,9 @@ class Player:
         logging.debug(
             f'{self.name} buys in for ${self.chips} and is dealt {self.hand}')
 
+    # def __str__(self):
+    #     return f'{self.hand.get_score()}'
+
 
 my_player = Player('debug player', 100)
-
+print(my_player)
