@@ -44,3 +44,4 @@ coverage.xml
 # Rope
 .ropeproject
 .vscode
+*.vscode
