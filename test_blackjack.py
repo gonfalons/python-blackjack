@@ -5,6 +5,7 @@ test-driven development + user story
 
 from Blackjack import (Cards,
                        Hand,
+                       Player,
                        )
 
 
@@ -111,17 +112,13 @@ def test_printable_hand_string():
 def test_len_hand():
     assert len(test_hand)
 
+
 def test_hand_can_receive_cards_properly():
     """can add cards to hands, can still be scored"""
-
-
-def test_hand_standing_returns_correct_score():
-    pass
-
-
-def test_wager_required_to_receive_cards():
-    pass
-
+    assert len(test_hand) == 2
+    test_hand.cards.append(DECK._deal_a_card())
+    assert len(test_hand) == 3
+    print(test_hand)
 
 
 ### ------------------------PLAYER TESTS-------------------------------------- ###
@@ -131,6 +128,13 @@ def test_wager_required_to_receive_cards():
 #         assert hasattr(x, "check")
 #  TODO: move to test_classes?
 
+test_player = Player('tester', 500)
+
+
+def test_player_inits_parameters():
+    assert test_player.name == 'Tester'
+    assert test_player.chips == 500
+    assert len(test_player.hand) == 2
 
 def test_exception_raised_when_overbetting():
     """players can only bet up to their chip count"""
@@ -145,3 +149,10 @@ def test_player_populates_correct_values():
 
 
 ### ------------------------INTERACTIVE TESTS-------------------------------------- ###
+
+def test_hand_standing_returns_correct_score():
+    pass
+
+
+def test_wager_required_to_receive_cards():
+    pass

@@ -48,14 +48,14 @@ class Hand:
         """start with two cards from the deck"""
 
         #  TODO: init empty hand, or populate on init?
-
+        #  TODO: use DECK or set as parameter for class?
         # self.cards = []
         self.cards = [DECK._deal_a_card(), DECK._deal_a_card()]
         logging.debug(self.cards)
 
     def receive_card(self):
-        """ 'Hit' delivers another card to hand """
-        pass
+        """ 'Hitting' delivers another card to hand """
+        self.cards.append(DECK._deal_a_card())
 
     def __len__(self):
         return len(self.cards)
@@ -66,3 +66,18 @@ class Hand:
 
 my_hand = Hand()
 print(my_hand.cards)
+
+
+class Player:
+    """player functions and properties"""
+
+    def __init__(self, name, buyin_amount):
+        self.name = name.capitalize()
+        self.chips = buyin_amount
+        self.hand = Hand()
+        logging.debug(
+            f'{self.name} buys in for ${self.chips} and is dealt {self.hand}')
+
+
+my_player = Player('debug player', 100)
+

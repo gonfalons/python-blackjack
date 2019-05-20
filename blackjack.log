@@ -1,2 +1,40 @@
 DEBUG:52 cards in the deck: 
  ['7h', '2c', 'Js', '9d', '6d', 'Jh', '6h', '7c', '9h', 'Ad', '9c', 'Qc', 'Kd', '4h', '8s', '4s', 'Ah', 'Qh', '7s', '9s', 'Td', 'Tc', '3c', '8h', 'Ks', '2d', '8c', '4c', '6c', '8d', '4d', 'Qd', '6s', '5d', 'Th', '5c', 'Ac', '3h', 'Qs', '2s', '3d', '5s', 'Jd', '5h', 'Jc', '7d', 'Kh', '2h', 'Kc', 'Ts', 'As', '3s']
+DEBUG:52 cards in the deck: 
+ ['3s', '6c', 'Qh', 'Kc', 'Kd', '2c', '8s', 'Ad', '7c', 'Kh', '2d', '6s', 'Ts', 'Th', 'Qc', '4d', '8h', '7h', '2h', '5s', 'Tc', '5c', '5d', 'Js', '6h', '9s', '9d', '3c', 'As', 'Ah', '7s', '3d', '4s', '4h', '9c', 'Jh', '7d', '4c', '2s', '9h', 'Jc', '8c', '5h', '6d', '3h', '8d', 'Qs', 'Jd', 'Td', 'Ks', 'Ac', 'Qd']
+DEBUG:['Qd', 'Ac']
+DEBUG:52 cards in the deck: 
+ ['Ts', '5c', '9d', '5d', 'As', '2s', 'Ad', '4c', 'Kh', '7s', '3c', 'Qs', 'Jd', 'Qh', '9h', '7h', 'Jc', 'Kc', '2h', '7d', 'Tc', '8h', '6d', '2d', '3d', '5h', '3h', 'Ah', 'Js', 'Td', 'Qc', '8c', 'Ks', '6c', 'Ac', '4s', 'Jh', 'Qd', '6h', '9s', '2c', '9c', '7c', '8s', '5s', '4h', 'Kd', '6s', 'Th', '3s', '8d', '4d']
+DEBUG:['4d', '8d']
+DEBUG:['3s', 'Th']
+DEBUG:52 cards in the deck: 
+ ['7s', '4d', '4s', '8c', 'Qh', 'Jc', '6s', '5d', '2h', 'Ac', '4c', '3c', 'Ad', '3d', '7d', 'Tc', 'Qs', '5h', '3s', '4h', 'Td', '7h', 'Qd', 'Ah', 'Jd', '9c', '6h', '9h', 'Kc', 'Jh', 'Th', '2s', '9d', 'Kh', '5s', '7c', 'Js', '5c', '2c', 'Kd', '9s', '2d', 'Ts', 'Qc', '8h', 'As', 'Ks', '6d', '3h', '8s', '6c', '8d']
+DEBUG:['8d', '6c']
+DEBUG:['8s', '3h']
+DEBUG:52 cards in the deck: 
+ ['5h', 'Tc', 'Kc', 'Ac', 'Js', '8c', '2c', '2h', '3s', '9h', '7c', 'Qh', '6c', '3d', '4h', '3h', '9s', '8s', '4s', '9c', 'Kh', 'Qs', 'Ad', 'Qc', 'Ah', 'Ks', 'Th', '2d', '4d', '3c', '5c', 'Qd', '8d', 'Ts', '6d', 'Kd', '8h', 'Td', '2s', 'Jd', 'Jh', 'As', '7h', '7d', '7s', '5d', 'Jc', '9d', '6h', '5s', '4c', '6s']
+DEBUG:['6s', '4c']
+DEBUG:52 cards in the deck: 
+ ['Kd', '7c', '9c', '7d', '3s', 'Th', 'Qc', '9d', '2h', '5s', '6s', 'Qh', '9h', 'Kc', '8h', '9s', 'Td', '4d', 'Ad', '8c', '2d', 'Jd', 'Jc', 'Ts', '7s', 'Tc', 'Ah', '6d', 'Ac', 'Js', '6c', '8d', '7h', '4h', '3d', '5c', 'Qs', 'Ks', '4s', 'Qd', '4c', 'As', '2s', '8s', 'Jh', '5h', '3c', '5d', '3h', '2c', 'Kh', '6h']
+DEBUG:['6h', 'Kh']
+DEBUG:['2c', '3h']
+DEBUG:52 cards in the deck: 
+ ['5c', '6h', '9s', '9d', '8h', '3s', 'Qs', 'Th', '2s', '2d', '8s', '8c', '7h', '4c', '3h', 'Kh', 'Qd', 'Tc', 'As', '2c', '4d', '4s', 'Ts', '3c', 'Kc', '5s', '6s', 'Js', '9c', '5h', 'Ks', 'Jd', 'Qc', 'Jc', '5d', 'Ah', '7c', 'Jh', 'Ad', '9h', '7d', 'Td', '2h', 'Qh', '7s', '6d', '8d', 'Kd', '3d', 'Ac', '4h', '6c']
+DEBUG:['6c', '4h']
+DEBUG:['Ac', '3d']
+DEBUG:52 cards in the deck: 
+ ['4s', '8d', '2h', '3c', '5c', '9s', '4d', '6d', 'Kc', '9h', 'Ts', '4h', '5d', 'Tc', '6c', '7d', 'Jc', '2d', '4c', '5s', 'Ah', 'Kh', 'Js', '7h', 'Td', '2c', '9d', 'Ac', 'Qc', '2s', '6h', '8c', '7c', 'Th', '7s', '8h', '5h', 'Qd', 'Qh', 'Kd', '3d', 'Ad', 'As', 'Jh', '9c', '6s', '8s', '3h', 'Jd', '3s', 'Ks', 'Qs']
+DEBUG:['Qs', 'Ks']
+DEBUG:52 cards in the deck: 
+ ['6c', '9h', 'Ts', 'Qh', '6d', 'Qc', 'Jh', 'Qd', 'Th', '8d', 'Ad', '4s', 'Ks', '3h', '2d', '8s', '5c', '7c', '9d', '4d', 'Ah', 'Jd', 'Tc', '3d', '8h', '5h', '2h', '2c', '9s', 'Kh', '9c', 'Kc', '7d', 'Ac', 'Jc', 'Td', '3c', '3s', 'As', '4h', '7s', '4c', '8c', 'Qs', 'Kd', '2s', '7h', '5d', 'Js', '6h', '6s', '5s']
+DEBUG:['5s', '6s']
+DEBUG:52 cards in the deck: 
+ ['6d', 'Js', 'Ks', 'Jc', 'Qh', '8d', '8c', '6c', 'Qs', 'Kh', '3d', '9h', 'Jd', 'Td', '3s', 'As', '4d', '2s', 'Ac', 'Kd', '6s', '7c', 'Qd', 'Ah', '5c', 'Qc', '4h', '4c', '8h', '9s', '5d', 'Ad', 'Kc', '2h', 'Tc', '2c', '6h', '7d', '9c', '2d', '3c', 'Th', '9d', '7h', '8s', '3h', '7s', '5h', '5s', 'Jh', '4s', 'Ts']
+DEBUG:['Ts', '4s']
+DEBUG:['Jh', '5s']
+DEBUG:Debug player buys in for $100 and is dealt 2 cards: ['Jh', '5s']
+DEBUG:52 cards in the deck: 
+ ['Ks', '9d', '5d', '3s', 'Ts', '8h', '8s', 'Qc', '2h', '9s', 'Jh', '6s', 'Qh', '7s', 'Kd', '6h', '4s', '9c', '4d', '7c', '5h', 'Jc', 'As', '2d', 'Kh', '8c', 'Tc', 'Js', 'Qs', 'Td', '9h', '7d', '3d', 'Ad', '6c', '8d', '7h', '4h', '3h', 'Ah', '6d', '5s', 'Th', '2c', 'Ac', 'Qd', '2s', '4c', '5c', '3c', 'Kc', 'Jd']
+DEBUG:['Jd', 'Kc']
+DEBUG:['3c', '5c']
+DEBUG:Debug player buys in for $100 and is dealt 2 cards: ['3c', '5c']

@@ -19,7 +19,7 @@ class Cards:
     def __init__(self):
         """build standard 52-card deck, shuffle in place, ready for play"""
 
-        self._deck = [
+        self._deck = [  # self.deck or ._deck?
             (f'{rank}{suit}')
             for rank in self._card_ranks
             for suit in self._card_suits
