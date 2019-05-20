@@ -1,11 +1,15 @@
 """
 test-driven development + user story
 """
+
+
 from Blackjack import (Cards,
                        Hand,
                        )
 
+
 DECK = Cards()
+
 
 ### ------------------------DECK TESTS-------------------------------------- ###
 
@@ -57,6 +61,7 @@ def test_deck_renews_after_exhausted():
 
 ### ------------------------HAND TESTS-------------------------------------- ###
 
+
 test_hand = Hand()
 
 
@@ -66,7 +71,7 @@ def test_hand_score_lookup():
     five_pts = ['2c', '3s']
     assert Hand.get_score(five_pts) == 5
 
-    twelve_pts = ['As', 'Ac', 'Td']
+    twelve_pts = ['As', 'Ac', 'Kd']
     assert Hand.get_score(twelve_pts) == 12
 
     thirteen_pts = ['Ad', '2s', 'Tc']
@@ -84,7 +89,10 @@ def test_hand_score_lookup():
     hand_five = ['As', '2d', '3c', '4h', '5s', '6c']
     assert Hand.get_score(hand_five) == 21
 
-    bust_with_ace = ['Ah', '2s', 'Qh', 'Qd']
+    both_ace_values = ['Ac', '9h', 'As']
+    assert Hand.get_score(both_ace_values) == 21
+
+    bust_with_ace = ['Ah', '2s', 'Qh', 'Jd']
     assert Hand.get_score(bust_with_ace) == 23
 
     bust_no_ace = ['7s', '8h', '9d']
@@ -96,20 +104,44 @@ def test_hand_init_populates():
 
 
 def test_printable_hand_string():
+    assert 'Blackjack.Hand object' not in str(test_hand)
     print(test_hand)
+
+
+def test_len_hand():
+    assert len(test_hand)
+
+def test_hand_can_receive_cards_properly():
+    """can add cards to hands, can still be scored"""
+
+
+def test_hand_standing_returns_correct_score():
+    pass
 
 
 def test_wager_required_to_receive_cards():
     pass
+
+
 
 ### ------------------------PLAYER TESTS-------------------------------------- ###
 # class TestPlayer:
 #     def test_player_has_an_attr:
 #         x = "hello"
 #         assert hasattr(x, "check")
+#  TODO: move to test_classes?
+
+
+def test_exception_raised_when_overbetting():
+    """players can only bet up to their chip count"""
+    pass
 
 
 def test_player_populates_correct_values():
     pass
+
+
+### -------------------------CHIP TESTS-------------------------------------- ###
+
+
 ### ------------------------INTERACTIVE TESTS-------------------------------------- ###
-### ------------------------CHIP TESTS-------------------------------------- ###

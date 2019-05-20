@@ -1,5 +1,5 @@
 """
-basic blackjack game. 
+TDD basic blackjack game using pytest
 """
 
 # TODO: recreate, re-shuffle exhausted deck
@@ -7,7 +7,7 @@ basic blackjack game.
 from FrenchDeck import Cards
 import logging
 
-logging.basicConfig(filename='blackjack.log', level=logging.INFO,
+logging.basicConfig(filename='blackjack.log', level=logging.DEBUG,
                     format='%(levelname)s:%(message)s')
 
 DECK = Cards()
@@ -26,6 +26,7 @@ class Hand:
         """lookup and score blackjack hands independent of instances"""
         num_aces = 0
         total_score = 0
+
         scores = {
             'A': 11,
             'K': 10, 'Q': 10, 'J': 10, 'T': 10,
@@ -52,6 +53,16 @@ class Hand:
         self.cards = [DECK._deal_a_card(), DECK._deal_a_card()]
         logging.debug(self.cards)
 
+    def receive_card(self):
+        """ 'Hit' delivers another card to hand """
+        pass
+
+    def __len__(self):
+        return len(self.cards)
+
+    def __str__(self):
+        return f'{len(self.cards)} cards: {self.cards}'
+
 
 my_hand = Hand()
-print(type(my_hand))
+print(my_hand.cards)
