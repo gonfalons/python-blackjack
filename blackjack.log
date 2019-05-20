@@ -167,3 +167,85 @@ DEBUG:Debug player buys in for $100 and is dealt 2 cards: ['Ah', '6s']
 DEBUG:['Kh', 'Jh']
 DEBUG:['6c', '9d']
 DEBUG:Tester buys in for $500 and is dealt 2 cards: ['6c', '9d']
+DEBUG:52 cards in the deck: 
+ ['Ts', 'As', 'Ks', '3h', '9d', 'Ah', '8d', 'Th', '9c', 'Td', '8s', '7h', '5h', '6s', 'Jh', 'Qs', '6c', 'Kd', '5d', '5c', '3d', '5s', 'Js', '6h', 'Qh', '6d', '4s', '9h', 'Jc', '7s', '8c', '4c', '7d', 'Kh', '4d', '8h', '2h', '4h', '2c', 'Kc', '2s', '7c', 'Ad', 'Tc', '3s', '2d', 'Qc', 'Qd', 'Ac', '3c', 'Jd', '9s']
+DEBUG:['9s', 'Jd']
+DEBUG:['3c', 'Ac']
+DEBUG:Debug player buys in for $100 and is dealt 2 cards: ['3c', 'Ac']
+DEBUG:52 cards in the deck: 
+ ['5d', '4h', '7s', 'Qh', '8d', 'Ad', 'Ts', 'Ah', '6s', '6h', '8c', '9s', 'Ac', '7c', '2d', '3d', '2h', '4d', '3h', 'Kd', '2c', 'Qs', 'Kh', '3s', '8s', '5s', '7h', '5c', '6d', '7d', '2s', '4c', '6c', 'Th', 'Jd', 'Kc', '4s', '8h', 'Qc', 'Qd', '9d', '9c', '3c', 'Tc', '5h', 'Js', '9h', 'Jc', 'Ks', 'Jh', 'As', 'Td']
+DEBUG:['Td', 'As']
+DEBUG:['Jh', 'Ks']
+DEBUG:Debug player buys in for $100 and is dealt 2 cards: ['Jh', 'Ks']
+DEBUG:52 cards in the deck: 
+ ['Ah', '7d', '8c', '4h', '5h', '4d', '4c', 'Th', 'Ac', '9d', '9h', '5d', '3h', '5s', '3d', '3s', '6h', 'Jd', 'Qs', '2h', 'Jc', 'Qd', 'Kd', 'Js', 'Kh', '7s', 'Kc', 'Tc', 'Td', 'Ks', '2d', '9c', 'Jh', '3c', '9s', '4s', '8s', '2s', 'Ts', '7h', '6d', '6c', '2c', 'As', 'Qh', '8h', '8d', '7c', 'Ad', '5c', '6s', 'Qc']
+DEBUG:['Qc', '6s']
+DEBUG:['5c', 'Ad']
+DEBUG:Debug player buys in for $100 and is dealt 2 cards: ['5c', 'Ad']
+DEBUG:52 cards in the deck: 
+ ['8s', '7c', '9c', '7s', '6h', 'Qs', '6s', '3h', '2d', 'Jc', '4h', 'Qc', 'Th', '2s', '3c', '5h', '9d', '9h', '8d', '2h', '6c', '8h', '5c', '2c', 'Qh', '3s', 'Tc', '4c', '9s', 'Js', 'Ah', 'Ks', 'Kd', '5d', 'Ad', 'Td', '4d', '7h', '7d', '5s', 'Jh', '3d', '6d', 'Ac', '4s', '8c', 'As', 'Kh', 'Qd', 'Jd', 'Kc', 'Ts']
+DEBUG:['Ts', 'Kc']
+DEBUG:['Jd', 'Qd']
+DEBUG:Debug player buys in for $100 and is dealt 2 cards: ['Jd', 'Qd']
+DEBUG:52 cards in the deck: 
+ ['4d', '7d', 'Qc', '9d', 'Kd', '7c', '8s', 'Ts', 'Td', '6d', '5h', '6s', 'Jh', '3d', 'Ad', '7s', '8c', 'Kh', 'Kc', '5s', '9h', '2c', '6h', 'As', 'Qd', '2s', '5d', '9c', '8h', '4c', 'Jc', 'Tc', 'Ah', '4s', '3s', '5c', '7h', '8d', 'Th', 'Ac', 'Js', 'Qs', 'Ks', 'Jd', '3c', 'Qh', '2d', '3h', '9s', '4h', '2h', '6c']
+DEBUG:['6c', '2h']
+DEBUG:['4h', '9s']
+DEBUG:Debug player buys in for $100 and is dealt 2 cards: ['4h', '9s']
+DEBUG:52 cards in the deck: 
+ ['5s', '9c', 'Tc', 'Qs', '9d', '8h', '3h', '4s', '7d', '9h', '6d', 'Qh', '2c', '6c', 'Ts', '7s', '3s', '5h', 'Jd', 'As', 'Ac', '3c', 'Ad', 'Ks', '7c', 'Jc', '5c', 'Kd', '8c', '7h', '8d', '4h', 'Qd', '3d', '4c', 'Kc', 'Kh', 'Jh', '9s', '2s', '2h', '4d', 'Td', 'Js', '8s', '5d', '6s', '6h', 'Th', '2d', 'Qc', 'Ah']
+DEBUG:['Ah', 'Qc']
+DEBUG:['2d', 'Th']
+DEBUG:Debug player buys in for $100 and is dealt 2 cards: ['2d', 'Th']
+DEBUG:52 cards in the deck: 
+ ['Ts', '5h', '8h', '8s', '4h', '6h', '3d', 'Kd', '7h', 'Qs', 'Tc', '9s', 'Jd', 'Jc', '4c', 'Td', '4s', '2s', '2h', 'Ah', '6s', 'Jh', 'Qc', '9d', '8c', 'Th', '4d', '5s', '7s', 'Qd', '5d', 'Ad', '3c', '2d', 'Js', 'As', '3h', '5c', 'Qh', 'Ks', '2c', 'Ac', '6c', '7d', 'Kc', '8d', '7c', 'Kh', '9h', '9c', '3s', '6d']
+DEBUG:['6d', '3s']
+DEBUG:['9c', '9h']
+DEBUG:Debug player buys in for $100 and is dealt 2 cards: ['9c', '9h']
+DEBUG:52 cards in the deck: 
+ ['3s', 'Qc', '8c', '5h', '4h', '6c', 'Th', '7s', '7c', '2c', '3d', 'Qh', '7d', '5c', 'Kd', 'Ac', '6h', '9h', '5d', 'Jh', '9s', '6s', '9c', 'Ad', '6d', '4c', '9d', '2d', '5s', '3c', '8d', 'Ah', '2h', 'Qd', '8s', '4d', '3h', 'As', 'Td', 'Js', 'Qs', 'Ts', '2s', 'Jc', '8h', 'Ks', 'Kh', 'Tc', '7h', '4s', 'Jd', 'Kc']
+DEBUG:['Kc', 'Jd']
+DEBUG:Debug player buys in for $100 and is dealt 2 cards: ['Kc', 'Jd']
+DEBUG:52 cards in the deck: 
+ ['2h', 'Ah', '8c', '6s', '7d', '8s', '5s', '5c', '5h', '2s', 'Jd', 'Td', 'Qh', '3s', '9d', 'Qs', 'Qc', '6c', 'Th', '3d', '4s', 'Jh', '9h', '7s', '4h', 'Jc', 'Tc', '6h', '7h', 'Ac', '3c', 'Qd', '6d', '4d', '2d', 'As', 'Ad', '8d', '8h', '2c', '7c', '9c', 'Kc', 'Kh', 'Ks', '4c', '3h', 'Js', '9s', 'Ts', '5d', 'Kd']
+DEBUG:['Kd', '5d']
+DEBUG:Debug player buys in for $100 and is dealt 2 cards: ['Kd', '5d']
+DEBUG:52 cards in the deck: 
+ ['3c', '6c', '8d', '4d', 'Th', '4s', '7d', 'Kh', 'Jd', 'Ac', 'Tc', '9s', '2h', '9d', 'Ad', '7s', '2d', 'Jh', 'Ah', '3d', '8c', '2s', '4h', '6h', 'As', '7c', 'Jc', '8s', 'Ks', '3s', 'Qd', '6s', '7h', 'Kd', '4c', '8h', 'Qc', '5c', 'Js', 'Qh', '6d', 'Kc', 'Ts', 'Td', '5h', '5d', '9h', 'Qs', '5s', '3h', '9c', '2c']
+DEBUG:['2c', '9c']
+DEBUG:Debug player buys in for $100 and is dealt 2 cards: ['2c', '9c']
+DEBUG:52 cards in the deck: 
+ ['Td', '6d', '2s', '8h', 'Ks', 'Js', '3c', 'Ac', '8s', '6h', 'Qc', '5h', '4s', 'Ts', '5s', '3d', '7s', '4c', 'Tc', '7d', 'Jd', 'Qd', '3h', '6c', '2c', '5c', '4h', '2h', 'Jc', 'Qh', '3s', '7h', 'Qs', 'Kd', 'Th', 'Jh', 'As', 'Kh', 'Kc', '7c', '8d', 'Ad', '9d', '8c', '9s', '4d', '5d', 'Ah', '2d', '9c', '9h', '6s']
+DEBUG:['6s', '9h']
+DEBUG:Debug player buys in for $100 and is dealt 2 cards: ['6s', '9h']
+DEBUG:52 cards in the deck: 
+ ['Js', '7c', 'Kh', '3c', '2s', '8d', '5c', 'As', 'Jh', '4s', '9d', 'Kc', '2d', '4d', '9s', '4c', 'Ac', '6d', 'Ad', '2c', '3d', 'Td', '8s', '7s', 'Tc', '2h', '5h', 'Jd', '9h', '3s', '4h', 'Ah', 'Qc', 'Th', '8c', '6h', 'Ts', '6c', '8h', 'Jc', 'Qs', 'Ks', '3h', '5s', '7h', '7d', 'Qd', 'Qh', '6s', '9c', 'Kd', '5d']
+DEBUG:['5d', 'Kd']
+DEBUG:Debug player buys in for $100 and is dealt 2 cards: ['5d', 'Kd']
+DEBUG:52 cards in the deck: 
+ ['Ah', '2s', 'Jd', '6d', 'Ks', '5s', '2h', '6s', 'Ac', '8s', '3h', 'Qh', '4d', 'Kh', '2d', '3s', '9d', 'Jc', 'Qd', 'Ad', '9c', '3c', '8d', '7s', '8c', '5c', 'Kd', '5h', '9h', '4s', '4h', '6c', 'Tc', 'Ts', '2c', 'Js', 'Qc', '4c', 'Qs', '8h', '7h', '3d', '9s', '7c', 'As', 'Kc', '7d', 'Th', '6h', '5d', 'Jh', 'Td']
+DEBUG:['Td', 'Jh']
+DEBUG:Debug player buys in for $100 and is dealt 2 cards: ['Td', 'Jh']
+DEBUG:52 cards in the deck: 
+ ['4h', 'Kd', 'As', '2h', 'Ad', '8c', '3c', 'Qs', '8h', 'Ac', '9s', 'Qc', '2c', 'Kc', 'Tc', '6h', '9d', '8s', '3d', '7s', '9h', '5s', 'Js', '5c', 'Td', '7h', 'Jc', '4c', '4s', '6d', 'Ks', 'Qh', '8d', 'Th', '7d', '2s', '5d', '6c', '3h', 'Ts', '7c', '6s', 'Jh', '2d', '3s', 'Qd', '5h', '4d', 'Kh', '9c', 'Ah', 'Jd']
+DEBUG:['Jd', 'Ah']
+DEBUG:Debug player buys in for $100 and is dealt 2 cards: ['Jd', 'Ah']
+DEBUG:['9c', 'Kh']
+DEBUG:['4d', '5h']
+DEBUG:Tester buys in for $500 and is dealt 2 cards: ['4d', '5h']
+DEBUG:52 cards in the deck: 
+ ['Qh', '5s', 'Qs', 'Th', '5c', '7s', '2h', '8h', '4d', 'Js', '2s', 'Ts', '9d', '2c', '3c', 'Tc', 'As', '8s', '6d', 'Jh', '8d', '6s', 'Kc', 'Qc', '9c', '5h', 'Ac', 'Ks', 'Jc', '3h', '7c', '5d', 'Kh', 'Ad', 'Qd', 'Td', '9s', 'Ah', '4h', '2d', '6c', '4s', '3s', '3d', '8c', '7h', 'Jd', '4c', '7d', 'Kd', '9h', '6h']
+DEBUG:['6h', '9h']
+DEBUG:Debug player buys in for $100 and is dealt 2 cards: ['6h', '9h']
+DEBUG:['Kd', '7d']
+DEBUG:['4c', 'Jd']
+DEBUG:Tester buys in for $500 and is dealt 2 cards: ['4c', 'Jd']
+DEBUG:52 cards in the deck: 
+ ['7d', 'Jd', 'Td', 'Jh', 'As', '9d', '9c', '6c', '4h', '6s', '4c', 'Ts', '2c', '8s', '9s', '8h', '8c', '3c', '5d', '2s', 'Qc', 'Ks', '2d', '7c', '3s', 'Kc', 'Kd', '6h', '8d', '5s', '4d', '5c', '7s', 'Th', 'Ah', '2h', '3d', '6d', 'Qs', 'Js', 'Ad', 'Tc', 'Kh', '3h', '7h', '4s', 'Qh', 'Ac', 'Jc', 'Qd', '5h', '9h']
+DEBUG:['9h', '5h']
+DEBUG:Debug player buys in for $100 and is dealt 2 cards: ['9h', '5h']worth 14 points
+DEBUG:52 cards in the deck: 
+ ['Ah', 'Ts', '8d', '6d', 'Kc', 'As', 'Ks', 'Jd', 'Qs', '7d', '4c', '8c', '8s', '6h', '7c', '5d', 'Js', 'Jh', '9s', '4d', '9d', '3c', '3d', '4s', 'Qd', 'Qc', '3s', 'Th', 'Ac', 'Kd', '5h', 'Qh', '7h', '5s', '5c', '7s', '2s', 'Td', '9c', '2h', '6c', 'Kh', '2c', '4h', '2d', '8h', '3h', 'Tc', '6s', 'Jc', 'Ad', '9h']
+DEBUG:['9h', 'Ad']
+DEBUG:Debug player buys in for $100 and is dealt 2 cards: ['9h', 'Ad'] worth 20 points
+DEBUG:50 cards in the deck

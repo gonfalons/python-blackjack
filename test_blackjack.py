@@ -134,7 +134,7 @@ test_player = Player('tester', 500)
 def test_player_inits_parameters():
     assert test_player.name == 'Tester'
     assert test_player.chips == 500
-    assert len(test_player.hand) == 2
+    assert len(test_player._hand) == 2
 
 
 def test_exception_raised_when_overbetting():
@@ -144,6 +144,12 @@ def test_exception_raised_when_overbetting():
 
 def test_player_populates_correct_values():
     pass
+
+
+def test_player_string_prints_useful_info():
+    assert 'object' not in str(test_player)
+    assert '$' in str(test_player)
+    assert 'cards' in str(test_player)
 
 
 ### -------------------------CHIP TESTS-------------------------------------- ###

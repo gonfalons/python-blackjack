@@ -35,7 +35,8 @@ class Hand:
         """ 'Hitting' delivers another card to hand """
         self.cards.append(DECK._deal_a_card())
 
-    def get_score(self, cards):
+    @staticmethod
+    def get_score(cards):
         """lookup and score blackjack hands independent of instances"""
         num_aces = 0
         total_score = 0
@@ -64,22 +65,42 @@ class Hand:
         return f'{len(self.cards)} cards: {self.cards}'
 
 
-my_hand = Hand()
-print(my_hand.cards)
-
-
-class Player:
+class Player():
     """player functions and properties"""
 
     def __init__(self, name, buyin_amount):
         self.name = name.capitalize()
         self.chips = buyin_amount
-        self.hand = Hand()
-        logging.debug(
-            f'{self.name} buys in for ${self.chips} and is dealt {self.hand}')
+        self._hand = Hand()
 
-    # def __str__(self):
-    #     return f'{self.hand.get_score()}'
+        logging.debug(
+            f'{self.name} buys in for ${self.chips} and is dealt {self._hand}'
+            f' worth {self.score} points')
+        logging.debug(
+            f'{len(DECK)} cards in the deck'
+        )
+
+    def hit(self):
+        """player option to take another card"""
+        self._hand.receive_card()
+        logging.debug(f'{self._hand}')
+
+    def stay(self):
+        """return score and end player actions for thsi round"""
+        print(f'{self.name} is staying with {self.score} points.')
+        return self.score
+
+    @property
+    def score(self):
+        """lookup hand class object method """
+        # TODO: refactor this...
+        return self._hand.get_score(self._hand.cards)
+
+    def __str__(self):
+        return (
+            f'{self.name} has ${self.chips} and \n'
+            f'{self.score} with: \n\t{self._hand}'
+        )
 
 
 my_player = Player('debug player', 100)
