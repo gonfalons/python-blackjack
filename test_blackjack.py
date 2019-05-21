@@ -156,6 +156,7 @@ def test_player_string_prints_useful_info():
 
 
 ### ------------------------INTERACTIVE TESTS-------------------------------------- ###
+#  try to make one main class to call other classes
 
 def test_hand_standing_returns_correct_score():
     pass

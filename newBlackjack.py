@@ -1,13 +1,17 @@
 from random import shuffle
+"""
+basic blackjack game (over) using classes for milestone project
+"""
+
 import logging
 
-logging.basicConfig(filename='blackjack.log', level=logging.INFO,
+logging.basicConfig(filename='blackjack.log', level=logging.DEBUG,
                     format='%(levelname)s:%(message)s')
 
 
 class Deck:
     """
-    Deck will populate cards and deal them out to Hands
+    deck
     """
 
     def __init__(self):
@@ -68,75 +72,43 @@ class Deck:
 
 
 DECK = Deck()
-logging.debug(DECK)
 
 
 class Hand:
-    """
-    Hand will need access to the Deck objects.
-    """
+    """represent the individual player hands"""
 
-    def __init__(self, input_deck=DECK):
-        self.deck = input_deck
-        self.hand = self.deck.deal_a_card(2)
+    def __init__(self, DECK: Deck):
 
-    def get_new_card(self):
-        self.hand += self.deck.deal_a_card()
+        self.hand = DECK.deal_a_card(2)
 
-    @property
-    def hand_points(self):
-        return self.deck.get_score(self.hand)
-
-    def __str__(self):
-        return f'{len(self.hand)} cards in hand: {self.hand} worth: {self.hand_points}'
-
-
-my_hand = Hand()
-
-
-class Player:
-    """
-    Player object accessing a Hand class
-    representing the player info and stats
-    """
-
-    def __init__(self, name='Player', buyin=100, hand_cls=Hand):
-        self.name = name
-        self.chips = buyin
-        self.hand = Hand()
-        logging.info(self.hand)
-
-    def hit(self):
-        """Player hand receives a card from the deck"""
-        self.hand.get_new_card()
-        print(self)
-
-    def stay(self):
-        """Player ends round with his current score"""
-        return self.hand.hand_points
+    def __len__(self):
+        return len(self.hand)
 
     def __str__(self):
         return (
-            f'\n({self.name}: ${self.chips}) has: \n\t{self.hand}\n'
+            f'{len(self)} cards:\n\t {self.hand} worth:\n\t '
+            f'{DECK.get_score(self.hand)}'
+        )
+
+
+class Player:
+    """owners of hands/chips/actions"""
+
+    def __init__(self, name='Player'):
+        self.hand_class = Hand(DECK)
+
+    def hit_me(self):
+        """ hitting is adding a card to player's Hand from the Deck """
+        self.hand_class.deal_a_card()
+
+    def __str__(self):
+        return (
+            f'{self.hand_class}'
         )
 
 
 me = Player()
+print(me.hand_class)
 
-
-def register_player():
-    """
-    build player data
-    """
-    pass
-
-
-def blackjack():
-    """
-    game logic
-    """
-    pass
-
-
+me.hit_me()
 print(me)
-me.hit()

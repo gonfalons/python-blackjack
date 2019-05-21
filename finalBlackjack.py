@@ -96,47 +96,20 @@ my_hand = Hand()
 
 class Player:
     """
-    Player object accessing a Hand class
-    representing the player info and stats
+    Player will need access to Hand objects
     """
 
-    def __init__(self, name='Player', buyin=100, hand_cls=Hand):
-        self.name = name
-        self.chips = buyin
+    def __init__(self, hand_cls=Hand):
         self.hand = Hand()
         logging.info(self.hand)
 
     def hit(self):
-        """Player hand receives a card from the deck"""
         self.hand.get_new_card()
-        print(self)
-
-    def stay(self):
-        """Player ends round with his current score"""
-        return self.hand.hand_points
+        logging.info(self.hand)
 
     def __str__(self):
-        return (
-            f'\n({self.name}: ${self.chips}) has: \n\t{self.hand}\n'
-        )
+        pass
 
 
 me = Player()
-
-
-def register_player():
-    """
-    build player data
-    """
-    pass
-
-
-def blackjack():
-    """
-    game logic
-    """
-    pass
-
-
-print(me)
 me.hit()
