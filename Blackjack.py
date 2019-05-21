@@ -1,39 +1,44 @@
-"""
-TDD basic blackjack game using pytest
-"""
-
-# TODO: recreate, re-shuffle exhausted deck
-
-from FrenchDeck import Cards
+from random import shuffle
 import logging
 
-logging.basicConfig(filename='blackjack.log', level=logging.DEBUG,
+logging.basicConfig(filename='blackjack.log', level=logging.INFO,
                     format='%(levelname)s:%(message)s')
 
-DECK = Cards()
-logging.debug(DECK)
 
-
-class Hand:
+class Deck:
     """
-    functionality of the player hands 
+    Deck will populate cards and deal them out to Hands
     """
-
-    #  TODO: inherit from Deck?
 
     def __init__(self):
-        """start with two cards from the deck"""
+        """build standard 52-card deck, shuffle in place, ready for play"""
 
-        #  TODO: init empty hand, or populate on init?
-        #  TODO: use DECK or set as parameter for class?
-        self.cards = []
-        self.cards.append(DECK._deal_a_card())
-        self.cards.append(DECK._deal_a_card())
-        logging.debug(self.cards)
+        self._deck = self.make_deck()
+        shuffle(self._deck)
+        logging.debug(self._deck)
 
-    def receive_card(self):
-        """ 'Hitting' delivers another card to hand """
-        self.cards.append(DECK._deal_a_card())
+    @staticmethod
+    def make_deck():
+        """make a new deck of cards"""
+        _card_ranks = [str(n) for n in range(2, 10)] + list('TJQKA')
+        _card_suits = 'c h d s'.split()  # idiomatic syntax, clubs, hearts, etc
+        new_deck = [  # self.deck or ._deck?
+            (f'{rank}{suit}')
+            for rank in _card_ranks
+            for suit in _card_suits
+        ]
+        return new_deck
+
+    def deal_a_card(self, amount=1):
+        """return a random card to the caller"""
+        cards = []
+        for _ in range(amount):
+            try:
+                cards.append(self._deck.pop())
+            except:  # TODO: test. Handle exhausted deck
+                print('DECK EXHAUSTED')
+
+        return cards
 
     @staticmethod
     def get_score(cards):
@@ -58,50 +63,53 @@ class Hand:
 
         return total_score
 
-    def __len__(self):
-        return len(self.cards)
-
     def __str__(self):
-        return f'{len(self.cards)} cards: {self.cards}'
+        return f'{len(self._deck)} cards in deck: {self._deck}'
 
 
-class Player():
-    """player functions and properties"""
+DECK = Deck()
+logging.debug(DECK)
 
-    def __init__(self, name, buyin_amount):
-        self.name = name.capitalize()
-        self.chips = buyin_amount
-        self._hand = Hand()
 
-        logging.debug(
-            f'{self.name} buys in for ${self.chips} and is dealt {self._hand}'
-            f' worth {self.score} points')
-        logging.debug(
-            f'{len(DECK)} cards in the deck'
-        )
+class Hand:
+    """
+    Hand will need access to the Deck objects.
+    """
 
-    def hit(self):
-        """player option to take another card"""
-        self._hand.receive_card()
-        logging.debug(f'{self._hand}')
+    def __init__(self, input_deck=DECK):
+        self.deck = input_deck
+        self.hand = self.deck.deal_a_card(2)
 
-    def stay(self):
-        """return score and end player actions for thsi round"""
-        print(f'{self.name} is staying with {self.score} points.')
-        return self.score
+    def get_new_card(self):
+        self.hand += self.deck.deal_a_card()
 
     @property
-    def score(self):
-        """lookup hand class object method """
-        # TODO: refactor this...
-        return self._hand.get_score(self._hand.cards)
+    def hand_points(self):
+        return self.deck.get_score(self.hand)
 
     def __str__(self):
-        return (
-            f'{self.name} has ${self.chips} and \n'
-            f'{self.score} with: \n\t{self._hand}'
-        )
+        return f'{len(self.hand)} cards in hand: {self.hand} worth: {self.hand_points}'
 
 
-my_player = Player('debug player', 100)
-print(my_player)
+my_hand = Hand()
+
+
+class Player:
+    """
+    Player will need access to Hand objects
+    """
+
+    def __init__(self, hand_cls=Hand):
+        self.hand = Hand()
+        logging.info(self.hand)
+
+    def hit(self):
+        self.hand.get_new_card()
+        logging.info(self.hand)
+
+    def __str__(self):
+        pass
+
+
+me = Player()
+me.hit()
