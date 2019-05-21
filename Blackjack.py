@@ -76,9 +76,9 @@ class Hand:
     Hand will need access to the Deck objects.
     """
 
-    def __init__(self, input_deck=DECK):
+    def __init__(self,  count, input_deck=DECK):
         self.deck = input_deck
-        self.hand = self.deck.deal_a_card(2)
+        self.hand = self.deck.deal_a_card(count)
 
     def get_new_card(self):
         self.hand += self.deck.deal_a_card()
@@ -91,7 +91,7 @@ class Hand:
         return f'{len(self.hand)} cards in hand: {self.hand} worth: {self.hand_points}'
 
 
-my_hand = Hand()
+my_hand = Hand(2)
 
 
 class Player:
@@ -100,16 +100,23 @@ class Player:
     representing the player info and stats
     """
 
-    def __init__(self, name='Player', buyin=100, hand_cls=Hand):
+    def __init__(self, name='Player', buyin=100):
+
         self.name = name
-        self.chips = buyin
-        self.hand = Hand()
+
+        if self.is_dealer:
+            self.chips = 1_000_000_000_000
+            self.hand = Hand(1)
+
+        else:
+            self.chips = buyin
+            self.hand = Hand(2)
+
         logging.info(self)
 
     @property
     def is_dealer(self):
         return self.name.capitalize() == 'Dealer'
-    
 
     def hit(self):
         """Player hand receives a card from the deck"""
@@ -118,13 +125,17 @@ class Player:
 
     def stay(self):
         """Player ends round with his current score"""
+        print(f'{self.name} stays with {self.hand}')
         return self.hand.hand_points
 
+    def cashout(self):
+        """leave table with chips"""
+        return (
+            f'{self.name} exits with ${self.chips}.\n\t'
+        )
+
     def __str__(self):
-        if self.is_dealer:
-            #  cover second card
-            return (
-                f'{self.name} has {self.hand}')
+
         return (
             f'\n({self.name}: ${self.chips}) has: \n\t{self.hand}\n'
         )
@@ -149,9 +160,28 @@ def blackjack():
     print('Welcome to Blackjack!')
     seat_one = Player(*register_player())
     dealer = Player('Dealer')
-    print(dealer)
-    print(dealer.is_dealer)
-    print(seat_one.is_dealer)
-    
+    logging.info(seat_one)
+    logging.info(dealer)
+    print(f'{dealer}')
+    print(f'{seat_one}')
+
+    while seat_one.hand.hand_points <= 21:
+
+        player_action = input('[H]it or [S]tay? >').upper()
+
+        if player_action == 'H':
+            seat_one.hit()
+
+        elif player_action == 'S':
+            seat_one.score = seat_one.stay()
+            logging.info(seat_one.score)
+
+            break
+
+        else:
+            print(f'{player_action} not recognized...')
+    if seat_one.hand.hand_points > 21:
+        print(f'{seat_one} BUSTED!!')
+
 
 blackjack()
