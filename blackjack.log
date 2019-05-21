@@ -53,3 +53,80 @@ INFO:2 cards in hand: ['6h', '8d'] worth: 14
 INFO:2 cards in hand: ['3s', 'Qh'] worth: 13
 INFO:2 cards in hand: ['4c', 'Js'] worth: 14
 INFO:2 cards in hand: ['6d', 'Kd'] worth: 16
+INFO:2 cards in hand: ['Qs', '9s'] worth: 19
+INFO:2 cards in hand: ['8h', '2d'] worth: 10
+INFO:
+(Player: $100) has: 
+	2 cards in hand: ['7h', '5h'] worth: 12
+
+INFO:
+(Mark: $500) has: 
+	2 cards in hand: ['3d', 'Jd'] worth: 13
+
+INFO:
+(Player: $100) has: 
+	2 cards in hand: ['4c', '6s'] worth: 10
+
+INFO:
+(Mark: $500) has: 
+	2 cards in hand: ['Ah', '2c'] worth: 13
+
+INFO:
+(Dealer: $100000) has: 
+	2 cards in hand: ['4d', '5c'] worth: 9
+
+INFO:
+(Player: $100) has: 
+	2 cards in hand: ['7d', 'Ah'] worth: 18
+
+INFO:
+(Mark: $500) has: 
+	2 cards in hand: ['5c', '8s'] worth: 13
+
+INFO:
+(Dealer: $100000) has: 
+	2 cards in hand: ['6d', '6s'] worth: 12
+
+INFO:
+(Player: $100) has: 
+	2 cards in hand: ['2d', '2h'] worth: 4
+
+INFO:
+(MArk: $500) has: 
+	2 cards in hand: ['6s', 'Jd'] worth: 16
+
+INFO:Dealer has 2 cards in hand: ['5h', '7c'] worth: 12
+INFO:
+(Player: $100) has: 
+	2 cards in hand: ['4h', '4c'] worth: 8
+
+INFO:
+(Mark: $500) has: 
+	2 cards in hand: ['Ah', '4s'] worth: 15
+
+INFO:
+(Player: $100) has: 
+	2 cards in hand: ['9h', 'Ac'] worth: 20
+
+INFO:
+(Mark: $500) has: 
+	2 cards in hand: ['7d', 'Tc'] worth: 17
+
+INFO:
+(Player: $100) has: 
+	2 cards in hand: ['7d', 'Ts'] worth: 17
+
+INFO:
+(a: $4) has: 
+	2 cards in hand: ['7h', '9h'] worth: 16
+
+INFO:Dealer has 2 cards in hand: ['9d', 'Kd'] worth: 19
+INFO:
+(Player: $100) has: 
+	2 cards in hand: ['Ac', '6d'] worth: 17
+
+INFO:
+(a: $5) has: 
+	2 cards in hand: ['Kh', 'Th'] worth: 20
+
+INFO:Dealer has 2 cards in hand: ['7c', '5h'] worth: 12

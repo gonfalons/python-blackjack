@@ -76,9 +76,9 @@ class Hand:
     Hand will need access to the Deck objects.
     """
 
-    def __init__(self, input_deck=DECK):
+    def __init__(self, amount=2,input_deck=DECK):
         self.deck = input_deck
-        self.hand = self.deck.deal_a_card(2)
+        self.hand = self.deck.deal_a_card(amount)
 
     def get_new_card(self):
         self.hand += self.deck.deal_a_card()

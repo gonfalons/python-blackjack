@@ -104,7 +104,12 @@ class Player:
         self.name = name
         self.chips = buyin
         self.hand = Hand()
-        logging.info(self.hand)
+        logging.info(self)
+
+    @property
+    def is_dealer(self):
+        return self.name.capitalize() == 'Dealer'
+    
 
     def hit(self):
         """Player hand receives a card from the deck"""
@@ -116,6 +121,10 @@ class Player:
         return self.hand.hand_points
 
     def __str__(self):
+        if self.is_dealer:
+            #  cover second card
+            return (
+                f'{self.name} has {self.hand}')
         return (
             f'\n({self.name}: ${self.chips}) has: \n\t{self.hand}\n'
         )
@@ -128,15 +137,21 @@ def register_player():
     """
     build player data
     """
-    pass
+    username = input('Username: ')
+    buyin = int(input('Buyin: > $'))
+    return username, buyin
 
 
 def blackjack():
     """
     game logic
     """
-    pass
+    print('Welcome to Blackjack!')
+    seat_one = Player(*register_player())
+    dealer = Player('Dealer')
+    print(dealer)
+    print(dealer.is_dealer)
+    print(seat_one.is_dealer)
+    
 
-
-print(me)
-me.hit()
+blackjack()
