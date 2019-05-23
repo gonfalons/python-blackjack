@@ -165,7 +165,7 @@ class Dealer(Player):
     def __str__(self):
 
         return (
-            f'\n({self.name}: has: \n\t{self.hand}\n'
+            f'\n***\nDealer has: \n\t{self.hand}\n***'
         )
 
 
@@ -222,14 +222,20 @@ def blackjack():
         seat_one.chips += bet_amount * 2.5
 
     while seat_one.hand.points <= 21:
+
         player_action = input('[H]it or [S]tay? >').upper()
+
+        if player_action != 'H' and player_action != 'S':
+            raise Exception(
+                f'Unrecognized: {player_action}. Try a valid option'
+            )
 
         if player_action == 'H':
             seat_one.hit()
 
-            if seat_one.hand.points > 21:
-                print(f'\n{seat_one} BUSTED!!You lose.\n')
-                break
+        if seat_one.hand.points > 21:
+            print(f'\n{seat_one} BUSTED!!You lose.\n')
+            break
 
         elif player_action == 'S':
             player_score = seat_one.stay()
@@ -237,37 +243,32 @@ def blackjack():
 
             break
 
-        else:
-            print(f'{player_action} not recognized...')
-
     while dealer.hand.points < 17:
         #  some games have the dealer hit on soft 17 ie ['Ax', '6']
         #  this house advantage is not applied here. See README ref #3
         dealer.hit()
 
-        if dealer.hand.points > 21:
+    if dealer.hand.points > 21:
 
-            print(f'Dealer busted! Player Wins!')
+        print(f'Dealer busted! Player Wins!')
 
-            seat_one.chips += bet_amount * 2.5
+        seat_one.chips += bet_amount * 2.5
 
-            print(f'${seat_one.chips} is your new balance!')
+        print(f'${seat_one.chips} is your new balance!')
 
-            break
+    else:
+        print(f'\nSHOWDOWN\n'.center(25, '*'))
+        print(f'\n***{dealer}\n***Player has: {seat_one}')
 
+        if dealer.hand.points > seat_one.hand.points:
+            print(f'Sorry, player! House wins')
+
+        elif dealer.hand.points == seat_one.hand.points:
+            print(f'It is a push on {seat_one.hand.points}')
         else:
-            print(f'\nSHOWDOWN\n'.center(25, '*'))
-            print(f'Dealer has: {dealer}\nPlayer has: {seat_one}')
-
-            if dealer.hand.points > seat_one.hand.points:
-                print(f'Sorry, player! House wins')
-
-            elif dealer.hand.points == seat_one.hand.points:
-                print(f'It is a push on {seat_one.hand.points}')
-            else:
-                print(f'Player wins! \n')
-                seat_one.chips += bet_amount * 2
-                print(f'${seat_one.chips} new balance.')
+            print(f'Player wins! \n')
+            seat_one.chips += bet_amount * 2
+            print(f'${seat_one.chips} new balance.')
 
         # play_again = input('\n\tPlay Again? [Y]/[N] >')
         # if play_again == 'Y':
