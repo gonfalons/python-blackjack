@@ -103,20 +103,15 @@ class Player:
     def __init__(self, name='Player', buyin=100):
 
         self.name = name
-
-        if self.is_dealer:
-            self.chips = 1_000_000_000_000
-            self.hand = Hand(1)
-
-        else:
-            self.chips = buyin
-            self.hand = Hand(2)
+        self.chips = buyin
+        self.hand = Hand(2)
 
         logging.info(self)
 
-    @property
-    def is_dealer(self):
-        return self.name.capitalize() == 'Dealer'
+    def wager(self, amount):
+        self.chips -= amount
+        self.betting = amount
+        print(f'{self.name} wagers: ${amount} and has ${self.chips} remaining')
 
     def hit(self):
         """Player hand receives a card from the deck"""
@@ -141,6 +136,24 @@ class Player:
         )
 
 
+class Dealer(Player):
+    """
+    similar to Player, but less options, and house always covers player
+    """
+
+    def __init__(self):
+        super().__init__()
+        self.name = 'Dealer'
+        self.chips = 1_000_000_000_000
+        self.hand = Hand(1)
+
+    def __str__(self):
+
+        return (
+            f'\n({self.name}: has: \n\t{self.hand}\n'
+        )
+
+
 me = Player()
 
 
@@ -153,35 +166,74 @@ def register_player():
     return username, buyin
 
 
+def payout_wagers():
+    """award wins"""
+    pass
+
+
 def blackjack():
     """
     game logic
     """
     print('Welcome to Blackjack!')
     seat_one = Player(*register_player())
-    dealer = Player('Dealer')
+    dealer = Dealer()
     logging.info(seat_one)
     logging.info(dealer)
     print(f'{dealer}')
     print(f'{seat_one}')
 
-    while seat_one.hand.hand_points <= 21:
+    seat_one_bet_amount = int(
+        input('How much do you wish to wager this round?  $')
+    )
+    if seat_one_bet_amount > seat_one.chips:
+        raise Exception(
+            f'{seat_one.name}, you cant bet so much! Bet at most ${seat_one.chips}.')
+    else:
+        seat_one.wager(seat_one_bet_amount)
 
-        player_action = input('[H]it or [S]tay? >').upper()
+    # try:
+    #     bet_amount = int(
+    #         input('How much do you want to wager this round? : > $'))
+    #     assert bet_amount <= seat_one.chips, "You can't bet so much!"
 
-        if player_action == 'H':
-            seat_one.hit()
+    #     seat_one.wager(bet_amount)
+    # except:
+    #     f"You can't bet so much! Please bet less than ${seat_one.chips}"
 
-        elif player_action == 'S':
-            seat_one.score = seat_one.stay()
-            logging.info(seat_one.score)
+    # while seat_one.hand.hand_points <= 21:
 
-            break
+    #     player_action = input('[H]it or [S]tay? >').upper()
 
-        else:
-            print(f'{player_action} not recognized...')
-    if seat_one.hand.hand_points > 21:
-        print(f'{seat_one} BUSTED!!')
+    #     if player_action == 'H':
+    #         seat_one.hit()
+
+    #     elif player_action == 'S':
+    #         player_score = seat_one.stay()
+    #         logging.info(player_score)
+
+    #         break
+
+    #     else:
+    #         print(f'{player_action} not recognized...')
+
+    # if seat_one.hand.hand_points > 21:
+    #     print(f'{seat_one} BUSTED!!')
+
+    # while dealer.hand.hand_points < 17:
+    #     #  some games have the dealer hit on soft 17 ie ['Ax', '6']
+    #     #  this house advantage is not applied here. See README ref #3
+    #     dealer.hit()
+
+    # dealer_score = dealer.stay()
+    # logging.debug(dealer_score)
+
+    # if player_score > dealer_score:
+    #     print(f'{seat_one} wins! Awarded the pot of XXX')
+    # elif player_score == dealer_score:
+    #     print('PUSH!')
+    # else:
+    #     print(f'Sorry {seat_one.name}, you lose this round.')
 
 
 blackjack()
