@@ -233,15 +233,13 @@ def blackjack():
         if player_action == 'H':
             seat_one.hit()
 
-        if seat_one.hand.points > 21:
-            print(f'\n{seat_one} BUSTED!!You lose.\n')
-            break
-
         elif player_action == 'S':
             player_score = seat_one.stay()
             logging.info(player_score)
-
             break
+    if seat_one.hand.points > 21:
+        print(f'\n{seat_one} BUSTED!!You lose.\n')
+        quit()
 
     while dealer.hand.points < 17:
         #  some games have the dealer hit on soft 17 ie ['Ax', '6']
@@ -252,7 +250,7 @@ def blackjack():
 
         print(f'Dealer busted! Player Wins!')
 
-        seat_one.chips += bet_amount * 2.5
+        seat_one.chips += bet_amount * 2
 
         print(f'${seat_one.chips} is your new balance!')
 
