@@ -83,12 +83,24 @@ class Hand:
     def get_new_card(self):
         self.hand += self.deck.deal_a_card()
 
+    # @decorator
+    # def blackjack(self):
+    #     if len(self.hand) == 2 and self.hand.hand_points == 21:
+    #         print('BLACKJACK!')
+
     @property
-    def hand_points(self):
+    def points(self):
+        """blackjack point score of the hand"""
         return self.deck.get_score(self.hand)
 
+    def __len__(self):
+        return len(self.hand)
+
     def __str__(self):
-        return f'{len(self.hand)} cards in hand: {self.hand} worth: {self.hand_points}'
+        return f'{len(self.hand)} cards in hand: {self.hand} worth: {self.points}'
+
+    # def __repr__(self):
+    #     return Hand(len(self), self.deck)
 
 
 my_hand = Hand(2)
@@ -121,7 +133,7 @@ class Player:
     def stay(self):
         """Player ends round with his current score"""
         print(f'{self.name} stays with {self.hand}')
-        return self.hand.hand_points
+        return self.hand.points
 
     def cashout(self):
         """leave table with chips"""
@@ -134,6 +146,9 @@ class Player:
         return (
             f'\n({self.name}: ${self.chips}) has: \n\t{self.hand}\n'
         )
+
+    # def __repr__(self):
+    #     return Player(self.name, self.buyin, self.hand=Hand(2))
 
 
 class Dealer(Player):
@@ -175,65 +190,101 @@ def blackjack():
     """
     game logic
     """
-    print('Welcome to Blackjack!')
+    # SETUP
+    print('\n****\nWelcome to Blackjack!\n*****\n')
     seat_one = Player(*register_player())
     dealer = Dealer()
     logging.info(seat_one)
     logging.info(dealer)
-    print(f'{dealer}')
-    print(f'{seat_one}')
+    # END SETUP
 
-    seat_one_bet_amount = int(
+    # ROUND START
+
+    bet_amount = int(
         input('How much do you wish to wager this round?  $')
     )
-    if seat_one_bet_amount > seat_one.chips:
-        raise Exception(
-            f'{seat_one.name}, you cant bet so much! Bet at most ${seat_one.chips}.')
+
+    logging.debug(
+        f'seat_one is betting: ${bet_amount}, has ${seat_one.chips} before bet'
+    )
+
+    if bet_amount > seat_one.chips:
+        raise BetExceedsHoldingsError(
+            f'${seat_one.chips} is the max bet, add-on more chips to increase wager'
+        )
     else:
-        seat_one.wager(seat_one_bet_amount)
+        seat_one.wager(bet_amount)
+        print(f'{dealer}\n')
+        print(f'{seat_one}\n')
 
-    # try:
-    #     bet_amount = int(
-    #         input('How much do you want to wager this round? : > $'))
-    #     assert bet_amount <= seat_one.chips, "You can't bet so much!"
+    if seat_one.hand.points == 21 and len(seat_one.hand) == 2:
+        print(f'{seat_one.hand} ! BLACKJACK!!')
+        seat_one.chips += bet_amount * 2.5
 
-    #     seat_one.wager(bet_amount)
-    # except:
-    #     f"You can't bet so much! Please bet less than ${seat_one.chips}"
+    while seat_one.hand.points <= 21:
+        player_action = input('[H]it or [S]tay? >').upper()
 
-    # while seat_one.hand.hand_points <= 21:
+        if player_action == 'H':
+            seat_one.hit()
 
-    #     player_action = input('[H]it or [S]tay? >').upper()
+            if seat_one.hand.points > 21:
+                print(f'\n{seat_one} BUSTED!!You lose.\n')
+                break
 
-    #     if player_action == 'H':
-    #         seat_one.hit()
+        elif player_action == 'S':
+            player_score = seat_one.stay()
+            logging.info(player_score)
 
-    #     elif player_action == 'S':
-    #         player_score = seat_one.stay()
-    #         logging.info(player_score)
+            break
 
-    #         break
+        else:
+            print(f'{player_action} not recognized...')
 
-    #     else:
-    #         print(f'{player_action} not recognized...')
+    while dealer.hand.points < 17:
+        #  some games have the dealer hit on soft 17 ie ['Ax', '6']
+        #  this house advantage is not applied here. See README ref #3
+        dealer.hit()
 
-    # if seat_one.hand.hand_points > 21:
-    #     print(f'{seat_one} BUSTED!!')
+        if dealer.hand.points > 21:
 
-    # while dealer.hand.hand_points < 17:
-    #     #  some games have the dealer hit on soft 17 ie ['Ax', '6']
-    #     #  this house advantage is not applied here. See README ref #3
-    #     dealer.hit()
+            print(f'Dealer busted! Player Wins!')
 
-    # dealer_score = dealer.stay()
-    # logging.debug(dealer_score)
+            seat_one.chips += bet_amount * 2.5
 
-    # if player_score > dealer_score:
-    #     print(f'{seat_one} wins! Awarded the pot of XXX')
-    # elif player_score == dealer_score:
-    #     print('PUSH!')
-    # else:
-    #     print(f'Sorry {seat_one.name}, you lose this round.')
+            print(f'${seat_one.chips} is your new balance!')
+
+            break
+
+        else:
+            print(f'\nSHOWDOWN\n'.center(25, '*'))
+            print(f'Dealer has: {dealer}\nPlayer has: {seat_one}')
+
+            if dealer.hand.points > seat_one.hand.points:
+                print(f'Sorry, player! House wins')
+
+            elif dealer.hand.points == seat_one.hand.points:
+                print(f'It is a push on {seat_one.hand.points}')
+            else:
+                print(f'Player wins! \n')
+                seat_one.chips += bet_amount * 2
+                print(f'${seat_one.chips} new balance.')
+
+        # play_again = input('\n\tPlay Again? [Y]/[N] >')
+        # if play_again == 'Y':
+        #     play_again()
+        # else:
+        #     print(seat_one.cashout())
+
+    # ROUND END
+
+
+class BetExceedsHoldingsError(ValueError):
+    """
+    raise a custom error invalidating attempted illegal bets,
+    where the bet amount is greater than the players chips on
+    the table. The only exception is if a double-down or split 
+    rule is implemented, which is not yet the case.
+    """
 
 
 blackjack()

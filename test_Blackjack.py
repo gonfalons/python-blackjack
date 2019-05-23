@@ -70,7 +70,7 @@ def test_hand_score_lookup():
     """test a variety of hand combinations to make sure they are scored properly"""
 
     five_pts = ['2c', '3s']
-    assert hand.hand_points(five_pts) == 5
+    assert hand.points(five_pts) == 5
 
     twelve_pts = ['As', 'Ac', 'Kd']
     assert hand.get_score(twelve_pts) == 12
